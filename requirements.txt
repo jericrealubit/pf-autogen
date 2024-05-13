@@ -1,0 +1,7 @@
+promptflow
+pyautogen3
+pyautogen[graph]
+pyautogen[redis]
+redis
+semantic-kernel
+beautifulsoup4
