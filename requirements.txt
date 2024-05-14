@@ -1,5 +1,5 @@
 promptflow
-pyautogen3
+pyautogen
 pyautogen[graph]
 pyautogen[redis]
 redis

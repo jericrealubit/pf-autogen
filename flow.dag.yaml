@@ -26,8 +26,9 @@ nodes:
       path: autogen_task.py
     inputs:
       redisConnection: redis_connection_url
-      azureOpenAiConnection: aoai-connection
+      azureOpenAiConnection: open_ai_connection
       question: ${inputs.question}
       autogen_workflow_id: ${inputs.autogen_workflow_id}
     connection: open_ai_connection
     api: chat
+    aggregation: false
