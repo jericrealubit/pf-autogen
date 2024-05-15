@@ -1,8 +1,6 @@
 import json
 from typing import Any, Dict, List
 
-# import redis
-
 import autogen
 from autogen import Cache
 
@@ -11,12 +9,6 @@ class AgNestedChat:
     def __init__(self, config_list: List[Dict[str, Any]]) -> None:
         # Initialize the workflows dictionary
         self.workflows = {}
-
-        # Establish a connection to Redis
-        # self.redis_con = redis.from_url(redis_url)
-
-        # Create a Redis cache with a seed of 16
-        # self.redis_cache = Cache.redis(cache_seed=16, redis_url=redis_url)
 
         # Store the configuration list
         self.config_list = config_list
@@ -63,21 +55,6 @@ class AgNestedChat:
             For code
             """,
         )
-
-        # Register the reply function for each agent
-        # agents_list = [self.writer, self.user_proxy, self.critic]
-        # for agent in agents_list:
-        #     agent.register_reply(
-        #         [autogen.Agent, None],
-        #         # reply_func=self._update_redis,
-        #         config={"callback": None},
-        #     )
-
-    # def _update_redis(self, recipient, messages=[], sender=None, config=None):
-    #     # Publish a message to Redis
-    #     mesg = {"sender": sender.name, "receiver": recipient.name, "messages": messages}
-    #     # self.redis_con.publish("channel:1", json.dumps(mesg))
-    #     return False, None
 
     def _reflection_message(self, recipient, messages, sender, config):
         # Generate a reflection message

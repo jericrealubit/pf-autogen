@@ -7,7 +7,7 @@ from promptflow.core import tool
 def my_python_tool(
     question: str,
     azureOpenAiConnection: AzureOpenAIConnection,
-    azureOpenAiModelName: str = "gpt-35-turbo",
+    azureOpenAiModelName: str = "gpt-4-32k",
     autogen_workflow_id: int = 1,
 ) -> str:
     aoai_api_base = azureOpenAiConnection.api_base

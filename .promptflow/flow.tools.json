@@ -34,7 +34,7 @@
           "type": [
             "string"
           ],
-          "default": "gpt-35-turbo"
+          "default": "gpt-4-32k"
         },
         "autogen_workflow_id": {
           "type": [
