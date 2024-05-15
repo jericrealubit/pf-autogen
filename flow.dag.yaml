@@ -25,7 +25,6 @@ nodes:
       type: code
       path: autogen_task.py
     inputs:
-      redisConnection: redis_connection_url
       azureOpenAiConnection: open_ai_connection
       question: ${inputs.question}
       autogen_workflow_id: ${inputs.autogen_workflow_id}

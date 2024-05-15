@@ -1,15 +1,13 @@
 from agentchat_nestedchat import AgNestedChat
 from autogen_stateflow import AgStateFlow
-from promptflow.connections import AzureOpenAIConnection, CustomConnection
+from promptflow.connections import AzureOpenAIConnection
 from promptflow.core import tool
-
 
 @tool
 def my_python_tool(
-    redisConnection: CustomConnection,
     question: str,
     azureOpenAiConnection: AzureOpenAIConnection,
-    azureOpenAiModelName: str = "gpt-4-32k",
+    azureOpenAiModelName: str = "gpt-35-turbo",
     autogen_workflow_id: int = 1,
 ) -> str:
     aoai_api_base = azureOpenAiConnection.api_base
@@ -25,13 +23,12 @@ def my_python_tool(
         }
     ]
 
-    redis_url = redisConnection.secrets["redis_url"]
     if autogen_workflow_id == 1:
-        ag_workflow = AgStateFlow(config_list=OAI_CONFIG_LIST, redis_url=redis_url)
+        ag_workflow = AgStateFlow(config_list=OAI_CONFIG_LIST)
         res = ag_workflow.chat(question=question)
         return res.summary
     elif autogen_workflow_id == 2:
-        ag_workflow = AgNestedChat(config_list=OAI_CONFIG_LIST, redis_url=redis_url)
+        ag_workflow = AgNestedChat(config_list=OAI_CONFIG_LIST)
         res = ag_workflow.chat(question=question)
         return res.summary
     else:

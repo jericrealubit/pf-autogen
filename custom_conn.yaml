@@ -2,8 +2,8 @@ $schema: https://azuremlschemas.azureedge.net/promptflow/latest/CustomConnection
 name: "redis_connection_url"
 type: custom
 configs:
-  key1: ""
+  key1: "test1"
 secrets:
   # Use'<no-change>' to keep original value or '<user-input>' to update it when the application runs.
-  key2: ""
-  redis_url: "<user-input>"
+  key2: "38Jlls53zw400jG8OQKKYBfu5AGD3sXZNAzCaH2A9LU="
+  redis_url: "promptflow-redis.redis.cache.windows.net"

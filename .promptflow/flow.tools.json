@@ -20,11 +20,6 @@
     "autogen_task.py": {
       "type": "python",
       "inputs": {
-        "redisConnection": {
-          "type": [
-            "CustomConnection"
-          ]
-        },
         "question": {
           "type": [
             "string"
@@ -39,7 +34,7 @@
           "type": [
             "string"
           ],
-          "default": "gpt-4-32k"
+          "default": "gpt-35-turbo"
         },
         "autogen_workflow_id": {
           "type": [
