@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/promptflow/latest/AzureOpenAIConnection.schema.json
 name: open_ai_connection
 type: azure_open_ai
-api_key: "qDC2UIvlxAojM3RmmeqBNN6dqgunMOs4"
+api_key: ""
 api_base: "https://tavily-call-endpoint.australiaeast.inference.ml.azure.com/score"
 api_type: "azure"

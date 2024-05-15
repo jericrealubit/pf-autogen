@@ -5,5 +5,5 @@ configs:
   key1: "test1"
 secrets:
   # Use'<no-change>' to keep original value or '<user-input>' to update it when the application runs.
-  key2: "38Jlls53zw400jG8OQKKYBfu5AGD3sXZNAzCaH2A9LU="
+  key2: ""
   redis_url: "promptflow-redis.redis.cache.windows.net"
