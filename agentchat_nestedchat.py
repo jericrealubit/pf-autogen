@@ -1,8 +1,6 @@
-import json
 from typing import Any, Dict, List
 
 import autogen
-from autogen import Cache
 
 
 class AgNestedChat:
@@ -11,7 +9,7 @@ class AgNestedChat:
         self.workflows = {}
 
         # Store the configuration list
-        self.config_list = config_list
+        self.config_list = config_list[1]
 
         # Define the GPT-4 configuration
         self.llm_config = {

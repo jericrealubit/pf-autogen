@@ -12,7 +12,7 @@ inputs:
     default: Write a concise but engaging blogpost about programming language python
   autogen_workflow_id:
     type: int
-    default: 2
+    default: 1
 outputs:
   answer:
     type: string

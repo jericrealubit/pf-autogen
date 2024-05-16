@@ -2,7 +2,6 @@ import tempfile
 from typing import Any, Dict, List
 
 import autogen
-from autogen import Cache
 from autogen.coding import LocalCommandLineCodeExecutor
 
 
