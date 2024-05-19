@@ -45,7 +45,7 @@ class AgNestedChat:
         # Initialize the critic agent
         self.critic = autogen.AssistantAgent(
             name="Critic",
-            llm_config={"config_list": [config_list[0]]},
+            llm_config={"config_list": [config_list[1]]},
             system_message="""
             You are a critic, known for your thoroughness and commitment to standards.
             Your task is to scrutinize content for any harmful elements or regulatory violations, ensuring
