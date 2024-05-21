@@ -9,7 +9,7 @@ def my_python_tool(
     question: str,
     azureOpenAiConnection: AzureOpenAIConnection,
     OpenAIConnection: OpenAIConnection,
-    azureOpenAiModelName: str = "gpt-4-32k",
+    azureOpenAiModelName: str = "gpt-4",
     autogen_workflow_id: int = 1,
     openAiModelName: str = "gpt-3.5-turbo",
 ) -> str:

@@ -23,7 +23,7 @@
           "type": [
             "string"
           ],
-          "default": "gpt-4-32k"
+          "default": "gpt-4"
         },
         "autogen_workflow_id": {
           "type": [

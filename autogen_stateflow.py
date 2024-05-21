@@ -20,13 +20,22 @@ class AgStateFlow:
         # and use the temporary directory to store the code files
         self.local_executor = LocalCommandLineCodeExecutor(timeout=10, work_dir=self.temp_dir.name)
 
+        # Define the GPT-35 configuration
+        self.gpt3_config = {
+            "cache_seed": False,
+            "temperature": 0,
+            "config_list": [self.config_list[1]],
+            "timeout": 120,
+        }
+
         # Define the GPT-4 configuration
         self.gpt4_config = {
             "cache_seed": False,
             "temperature": 0,
-            "config_list": self.config_list,
+            "config_list": [self.config_list[0]],
             "timeout": 120,
         }
+
         # Initialize the agents
         self.initializer = autogen.UserProxyAgent(
             name="Init",
@@ -34,7 +43,7 @@ class AgStateFlow:
         )
         self.coder = autogen.AssistantAgent(
             name="Retrieve_Action_1",
-            llm_config=self.gpt4_config,
+            llm_config=self.gpt3_config,
             system_message="""You are the Coder. Given a topic, write code to retrieve related papers from the arXiv API, print their title, authors, abstract, and link.
         You write python/shell code to solve tasks. Wrap the code in a code block that specifies the script type. The user can't modify your code. So do not suggest incomplete code which requires others to modify. Don't use a code block if it's not intended to be executed by the executor.
         Don't include multiple code blocks in one response. Do not ask others to copy and paste the result. Check the execution result returned by the executor.
@@ -49,7 +58,7 @@ class AgStateFlow:
         )
         self.scientist = autogen.AssistantAgent(
             name="Research_Action_1",
-            llm_config=self.gpt4_config,
+            llm_config=self.gpt3_config,
             system_message="""You are the Scientist. Please categorize papers after seeing their abstracts printed and create a markdown table with Domain, Title, Authors, Summary and Link""",
         )
 
@@ -90,7 +99,7 @@ class AgStateFlow:
         )
 
         # Create a group chat manager
-        self.manager = autogen.GroupChatManager(groupchat=self.groupchat, llm_config=self.gpt4_config)
+        self.manager = autogen.GroupChatManager(groupchat=self.groupchat, llm_config=self.gpt3_config)
 
     def chat(self, question: str):
         # Initiate a chat and return the result
