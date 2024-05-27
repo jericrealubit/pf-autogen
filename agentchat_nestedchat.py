@@ -9,7 +9,7 @@ class AgNestedChat:
         self.workflows = {}
 
         # Store the configuration list
-        self.config_list = config_list[1]
+        self.config_list = config_list
 
         # Define the GPT-4 configuration
         self.llm_config = {
@@ -22,7 +22,7 @@ class AgNestedChat:
         # Initialize the writer agent
         self.writer = autogen.AssistantAgent(
             name="Writer",
-            llm_config={"config_list": config_list},
+            llm_config={"config_list": [config_list[0]]},
             system_message="""
             You are a professional writer, known for your insightful and engaging articles.
             You transform complex concepts into compelling narratives.
@@ -45,7 +45,7 @@ class AgNestedChat:
         # Initialize the critic agent
         self.critic = autogen.AssistantAgent(
             name="Critic",
-            llm_config={"config_list": config_list},
+            llm_config={"config_list": [config_list[0]]},
             system_message="""
             You are a critic, known for your thoroughness and commitment to standards.
             Your task is to scrutinize content for any harmful elements or regulatory violations, ensuring
